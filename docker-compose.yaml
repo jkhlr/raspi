@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  homebridge:
+    build: homebridge
+    restart: always
+    network_mode: host
+    environment:
+      PGID: 1000
+      PUID: 1000
+      HOMEBRIDGE_CONFIG_UI: 1
+      HOMEBRIDGE_CONFIG_UI_PORT: 80
+    volumes:
+      - /home/pi/homebridge/homebridge:/homebridge
+
+  smart-led:
+    build: smart-led
+    restart: always
+    ports:
+      - 0.0.0.0:4999:4999
+    environment:
+      DB_DIR: /app/db
+    volumes:
+      - /home/pi/smart-led/app/db:/app/db
+
+  logitech-ir-remote:
+    build: logitech-ir-remote
+    restart: always
+    ports:
+      - 127.0.0.1:8000:80
+    environment:
+      LOCKFILE_DIR: /app/lock
+    volumes:
+      - /home/pi/logitech-ir-remote/app/lock:/app/lock
+    devices:
+      - /dev/lirc0

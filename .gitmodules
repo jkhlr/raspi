@@ -1,0 +1,9 @@
+[submodule "homebridge"]
+	path = homebridge
+	url = git@github.com:jkhlr/homebridge.git
+[submodule "logitech-ir-remote"]
+	path = logitech-ir-remote
+	url = git@github.com:jkhlr/logitech-ir-remote.git
+[submodule "smart-led"]
+	path = smart-led
+	url = git@github.com:jkhlr/smart-led.git
