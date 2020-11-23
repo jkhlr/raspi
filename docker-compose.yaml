@@ -34,3 +34,14 @@ services:
       - /home/pi/logitech-ir-remote/app/lock:/app/lock
     devices:
       - /dev/lirc0
+
+  hygro-api:
+    build: hygro-api
+    restart: always
+    ports:
+      - 127.0.0.1:8001:80
+    cap_add:
+      - SYS_RAWIO
+    devices:
+      - /dev/mem
+      - /dev/vcio

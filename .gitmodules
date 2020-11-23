@@ -7,3 +7,6 @@
 [submodule "smart-led"]
 	path = smart-led
 	url = git@github.com:jkhlr/smart-led.git
+[submodule "hygro-api"]
+	path = hygro-api
+	url = git@github.com:jdjwelsch/hygro-api.git
